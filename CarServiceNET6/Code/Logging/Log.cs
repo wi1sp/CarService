@@ -1,11 +1,11 @@
-﻿using CarServiceNET6.Code.Enums;
+﻿using CarService.Code.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarServiceNET6.Code.Logging;
+namespace CarService.Code.Logging;
 public class Log
 {
     public Log()

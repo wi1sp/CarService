@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace CarServiceNET6.Code.Interfaces;
+namespace CarService.Code.Interfaces;
 public interface ISaveable
 {
     XElement Save();

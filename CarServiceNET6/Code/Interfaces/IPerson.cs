@@ -1,6 +1,6 @@
-﻿using CarServiceNET6.Code.Enums;
+﻿using CarService.Code.Enums;
 
-namespace CarServiceNET6.Code.Interfaces;
+namespace CarService.Code.Interfaces;
 public interface IPerson : ISaveable
 {
     int Id { get; }

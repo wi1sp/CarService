@@ -1,6 +1,6 @@
-﻿using CarServiceNET6.Code.Enums;
+﻿using CarService.Code.Enums;
 
-namespace CarServiceNET6.Code.Logging;
+namespace CarService.Code.Logging;
 public class LogEventArgs
 {
     public OperType OType { get; }

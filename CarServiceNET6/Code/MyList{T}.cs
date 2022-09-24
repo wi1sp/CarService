@@ -1,7 +1,7 @@
-﻿using CarServiceNET6.Code.Interfaces;
+﻿using CarService.Code.Interfaces;
 using System.Xml.Linq;
 
-namespace CarServiceNET6.Code;
+namespace CarService.Code;
 public class MyList<T> : ISaveable where T : IPerson
 {
     public delegate T NewT();

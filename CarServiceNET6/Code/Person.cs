@@ -1,4 +1,4 @@
-﻿namespace CarServiceNET6.Code;
+﻿namespace CarService.Code;
 public class Person
 {
     static int count = 0;

@@ -1,6 +1,6 @@
 using LB4;
 
-namespace CarServiceNET6;
+namespace CarService;
 
 internal static class Program
 {

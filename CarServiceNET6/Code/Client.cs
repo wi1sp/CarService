@@ -1,8 +1,8 @@
-﻿using CarServiceNET6.Code.Enums;
-using CarServiceNET6.Code.Interfaces;
+﻿using CarService.Code.Enums;
+using CarService.Code.Interfaces;
 using System.Xml.Linq;
 
-namespace CarServiceNET6.Code;
+namespace CarService.Code;
 public class Client : Person, IPerson
 {
     protected string email;

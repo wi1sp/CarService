@@ -1,7 +1,7 @@
-﻿using CarServiceNET6.Code.Interfaces;
+﻿using CarService.Code.Interfaces;
 using System.Xml.Linq;
 
-namespace CarServiceNET6.Code;
+namespace CarService.Code;
 public class Car : ISaveable
 {
     static int count = 0;
