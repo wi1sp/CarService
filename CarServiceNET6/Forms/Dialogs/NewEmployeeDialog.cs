@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CarService;
-using LogClasses;
+﻿using CarServiceNET6.Code;
+using CarServiceNET6.Code.Enums;
+using CarServiceNET6.Code.Logging;
 
 namespace LB4
 {
@@ -37,9 +29,9 @@ namespace LB4
             if (this.ShowDialog() == DialogResult.Cancel)
                 return null;
             string date = dtp_dob.Value.ToString("dd.MM.yyyy");
-            Employee ret =  new Employee(tb_name.Text, tb_surname.Text, int.Parse(tb_age.Text), tb_teleph.Text, tb_we.Text, cb_post.Text, tb_spec.Text, date);
+            Employee ret = new Employee(tb_name.Text, tb_surname.Text, int.Parse(tb_age.Text), tb_teleph.Text, tb_we.Text, cb_post.Text, tb_spec.Text, date);
             AddLog?.Invoke(ret, new LogEventArgs(OperType.New));
-            
+
             return ret;
 
         }

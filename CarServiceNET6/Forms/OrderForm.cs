@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CarService;
-using LogClasses;
+﻿using CarServiceNET6.Code;
+using CarServiceNET6.Code.Enums;
+using CarServiceNET6.Code.Logging;
 
 namespace LB4
 {
@@ -18,11 +10,11 @@ namespace LB4
         List<Employee> employees;
         public delegate void ListLog(object sender, LogEventArgs e);
         public delegate void Refreshing();
-        
-        public event ListLog AddLog;
-        public event Refreshing Update; 
 
-        public f_order(Order order,List<Employee> empl)
+        public event ListLog AddLog;
+        public event Refreshing Update;
+
+        public f_order(Order order, List<Employee> empl)
         {
             employees = empl;
             Order = order;
@@ -36,7 +28,7 @@ namespace LB4
             }
             cb_epls.SelectedIndex = 0;
 
-            tb_price.Text= order.Price.ToString();
+            tb_price.Text = order.Price.ToString();
             tb_deal.Text = order.Deal;
             rtb_desc.Text = order.Description;
 
@@ -45,7 +37,7 @@ namespace LB4
             {
                 status = "На обработке";
             }
-            else if(order.End != "")
+            else if (order.End != "")
             {
                 b_status.Enabled = false;
                 status = "Выполнен";
@@ -127,7 +119,7 @@ namespace LB4
         {
             if (cb_epls.SelectedIndex != 0)
             {
-                AddLog?.Invoke(Order, new LogEventArgs(OperType.Changed, subinfo: $"Responsible: {employees[cb_epls.SelectedIndex - 1].ToStr(Interfaces.InfoType.Full)}"));
+                AddLog?.Invoke(Order, new LogEventArgs(OperType.Changed, subinfo: $"Responsible: {employees[cb_epls.SelectedIndex - 1].ToStr(InfoType.Full)}"));
                 Update?.Invoke();
                 Order.SetEmployee(employees[cb_epls.SelectedIndex - 1]);
                 p_setempl.Visible = false;

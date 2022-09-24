@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CarService;
-using LogClasses;
+﻿using CarServiceNET6.Code;
+using CarServiceNET6.Code.Enums;
+using CarServiceNET6.Code.Logging;
 
 namespace LB4
 {
@@ -20,12 +12,12 @@ namespace LB4
         Car inordercar;
         MyList<Client> _clients;
         MyList<Employee> _employees;
-        public d_neworder( MyList<Client> clients,  MyList<Employee> employees)
+        public d_neworder(MyList<Client> clients, MyList<Employee> employees)
         {
             InitializeComponent();
             _clients = clients;
             _employees = employees;
-     
+
             cb_clients.Items.Add("Не выбран");
             foreach (var item in clients.List)
             {
@@ -62,7 +54,7 @@ namespace LB4
                 cb_clients.SelectedIndex = 0;
             }
 
-            if(cb_clients.InvokeRequired)
+            if (cb_clients.InvokeRequired)
             {
                 Action safeupdate = delegate { UpdateData(); };
                 cb_clients.Invoke(safeupdate);
@@ -98,7 +90,7 @@ namespace LB4
             }
 
             AddLog?.Invoke(neworder, new LogEventArgs(OperType.New));
-       
+
             return neworder;
         }
 
@@ -106,14 +98,14 @@ namespace LB4
         {
             if (cb_clients.SelectedIndex == 0)
             {
-                MessageBox.Show("Не указан заказчик","Внимание!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Не указан заказчик", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (tb_carname.Text == "Не выбрана")
             {
                 MessageBox.Show("Не указана машина", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
+            }
             DialogResult = DialogResult.OK;
         }
 
