@@ -1,45 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CarService;
-using LogClasses;
+﻿using CarService.Code;
+using CarService.Code.Enums;
+using CarService.Code.Logging;
 
 namespace LB4
 {
-    public partial class d_newcl : Form
+    public partial class d_newempl : Form
     {
-        IWin32Window owner;
         public delegate void ListLog(object sender, LogEventArgs e);
         public event ListLog AddLog;
 
-        public d_newcl(IWin32Window own)
+
+
+        public d_newempl(IWin32Window own)
         {
             InitializeComponent();
-            owner = own;
+            cb_post.SelectedIndex = 0;
         }
-
-        public Client GetClient()
+        public Employee GetEmployee()
         {
             tb_name.Text = "";
             tb_surname.Text = "";
             tb_age.Text = "";
             tb_teleph.Text = "";
-            tb_email.Text = "";
-            tb_adress.Text = "";
+            tb_we.Text = "";
+            cb_post.SelectedIndex = 0;
+            tb_spec.Text = "";
             dtp_dob.Value = DateTime.Now;
-            if (this.ShowDialog() ==DialogResult.Cancel)
+            if (this.ShowDialog() == DialogResult.Cancel)
                 return null;
             string date = dtp_dob.Value.ToString("dd.MM.yyyy");
-
-            Client ret =  new Client(tb_name.Text, tb_surname.Text, int.Parse(tb_age.Text), tb_teleph.Text, tb_email.Text, tb_adress.Text, date);
+            Employee ret = new Employee(tb_name.Text, tb_surname.Text, int.Parse(tb_age.Text), tb_teleph.Text, tb_we.Text, cb_post.Text, tb_spec.Text, date);
             AddLog?.Invoke(ret, new LogEventArgs(OperType.New));
-            
+
             return ret;
 
         }

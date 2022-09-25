@@ -1,10 +1,7 @@
-﻿using CarService;
-using LogClasses;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using CarService.Code;
+using CarService.Code.Enums;
+using CarService.Code.Logging;
 using System.Xml.Linq;
-using System.Threading;
 
 namespace LB4
 {
@@ -53,7 +50,7 @@ namespace LB4
             employees.SetDel(em_dialog.GetEmployee);
             dem = new Thread(employees.AddNew);
 
-            no_dialog = new d_neworder( clients,  employees);
+            no_dialog = new d_neworder(clients, employees);
             no_dialog.AddLog += log.AddLog;
             GetOrder = no_dialog.GetOrder;
 
@@ -97,7 +94,7 @@ namespace LB4
             if (newo == null)
                 return;
 
-            listoforders.Add(newo.ToStr(),newo);
+            listoforders.Add(newo.ToStr(), newo);
             UpdatingInfo?.Invoke();
         }
 
@@ -225,7 +222,7 @@ namespace LB4
 
             if (save.Name != "datasave")
                 return;
-        
+
             listoforders = null;
             clients = null;
             employees = null;
@@ -256,7 +253,7 @@ namespace LB4
                 }
             }
 
-            no_dialog = new d_neworder( clients,  employees);
+            no_dialog = new d_neworder(clients, employees);
             no_dialog.AddLog += log.AddLog;
             GetOrder = no_dialog.GetOrder;
 
